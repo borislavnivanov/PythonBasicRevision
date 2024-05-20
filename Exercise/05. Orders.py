@@ -1,22 +1,12 @@
-orders = int(input())
-total = 0
+total_price = 0
+number_of_orders = int(input())
 
-for _ in range(0, orders):
-    coffee_price = float(input())
+for orders in range(number_of_orders):
+    price_per_capsule = float(input())
     days = int(input())
-    capsules_per_day = int(input())
-
-    if coffee_price <= 0 or coffee_price > 100:
-        continue
-
-    if days <= 0 or days > 31:
-        continue
-
-    if capsules_per_day <= 0 or capsules_per_day > 2000:
-        continue
-
-    order_amount = (capsules_per_day * days) * coffee_price
-    total += order_amount
-    print(f'The price for the coffee is: ${order_amount:.2f}')
-
-print(f'Total: ${total:.2f}')
+    capsule_per_day = int(input())
+    price = capsule_per_day * days * price_per_capsule
+    if 0.01 <= price_per_capsule <= 100.00 and 1 <= days <= 31 and 1 <= capsule_per_day <= 2000:
+        total_price += price
+        print(f"The price for the coffee is: ${price:.2f}")
+print(f"Total: ${total_price:.2f}")
